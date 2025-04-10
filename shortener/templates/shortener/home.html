@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ShrinkzURL</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'shortener/styles.css' %}">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="branding">ShrinkzURL</div>
+        <div class="content">
+            <h1 class="caption">Slim Down that URL!</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" name="long_url" placeholder="Paste your URL here..." required>
+                    <button type="submit">➤</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

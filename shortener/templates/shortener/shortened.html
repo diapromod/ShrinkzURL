@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ShrinkzURL - Result</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'shortener/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="branding">ShrinkzURL</div>
+        <div class="content">
+            <h1 class="caption">Because Size does Matter...</h1>
+            <div class="input-group">
+                <input type="text" value="{{ short_url }}" readonly>
+                <button class="button" onclick="copyToClipboard()">Copy</button>
+            </div>
+            <p style="margin-top: 15px;">Copied? <a href="{% url 'home' %}" style="color: white;">Shorten another</a></p>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const input = document.querySelector('input[type="text"]');
+            input.select();
+            input.setSelectionRange(0, 99999); // For mobile
+            document.execCommand("copy");
+            alert("Copied to clipboard!");
+        }
+    </script>
+</body>
+</html>
